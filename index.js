@@ -9,6 +9,7 @@ const io = new Server(httpServer, {
         origin: '*'
     }
 });
+const port = process.env.PORT || 8080;
 
 app.use(express.static(path.join(__dirname, './public')))
 
@@ -37,4 +38,5 @@ io.on('connection', (socket) => {
 
 
 
-httpServer.listen(process.env.PORT || 8080, () => console.log('server is live'))
+// httpServer.listen(process.env.PORT || 8080, () => console.log('server is live'))
+httpServer.listen(port, () => console.log('server is live'))
